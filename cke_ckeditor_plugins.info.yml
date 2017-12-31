@@ -1,0 +1,5 @@
+name: CKE CkEditor Plugins
+type: module
+description: Add custom plugins to CKEditor
+core: 8.x
+package: Custom
