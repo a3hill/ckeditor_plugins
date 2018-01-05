@@ -7,17 +7,11 @@
 CKEDITOR.dialog.add( 'stat', function( editor ) {
   var lang = editor.lang.stat,
     configs = editor.config,
-    colorScheme = [],
-    animationOptions = [];
+    colorScheme = [];
 
   // Get color scheme from config
   configs.colorScheme.forEach(function (item) {
     colorScheme.push([item.name, item.value])
-  });
-
-  // Get animation options from config
-  configs.animationOptions.forEach(function (item) {
-    animationOptions.push([item.name, item.value])
   });
 
   return {
@@ -86,7 +80,8 @@ CKEDITOR.dialog.add( 'stat', function( editor ) {
             type: 'select',
             label: 'Color',
             items: colorScheme,
-            default: colorScheme[0][1],
+            // @TODO set defaults
+            // default: 'red',
             setup: function( widget ) {
               this.setValue( widget.data.color );
             },
@@ -94,22 +89,8 @@ CKEDITOR.dialog.add( 'stat', function( editor ) {
               widget.setData( 'color', this.getValue() );
             }
           },
-          {
-            // Create Color list.
-            id: 'animation',
-            type: 'radio',
-            label: 'Animation',
-            items: animationOptions,
-            default: animationOptions[0][1],
-            setup: function( widget ) {
-              this.setValue( widget.data.animation );
-            },
-            commit: function( widget ) {
-              widget.setData( 'animation', this.getValue() );
-            }
-          }
         ]
       }
     ]
   };
-} );
+});

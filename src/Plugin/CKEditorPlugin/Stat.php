@@ -20,8 +20,7 @@ use Drupal\editor\Entity\Editor;
  *   label = @Translation("Stat")
  * )
  */
-class Stat extends CKEditorPluginBase implements CKEditorPluginContextualInterface, CKEditorPluginConfigurableInterface {
-
+class Stat extends CKEditorPluginBase {
 
   /**
    * {@inheritdoc}
@@ -100,26 +99,6 @@ class Stat extends CKEditorPluginBase implements CKEditorPluginContextualInterfa
   public function getConfig(Editor $editor) {
     $settings = $editor->getSettings();
 
-    // Get animation options
-    // @TODO not saving
-    $animationOptions = [];
-    $animationOpts = 'Clockwise, Counter Clockwise';
-
-    if (!empty($settings['plugins']['stat']['animationOptions'])) {
-      $animationOpts = ($settings['plugins']['stat']['animationOptions']);
-    }
-
-    $animationOpts = explode(', ', $animationOpts);
-
-    foreach ($animationOpts as $option) {
-      $value = str_replace(' ', '-',strtolower($option));
-
-      $animationOptions[] = [
-        "name" => $option,
-        "value" => $value,
-      ];
-    }
-
     // Get color options
     $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'color_scheme']);
     $colorScheme = [];
@@ -137,37 +116,6 @@ class Stat extends CKEditorPluginBase implements CKEditorPluginContextualInterfa
     // Add config
     return [
       'colorScheme' => $colorScheme,
-      'animationOptions' => $animationOptions
     ];
-  }
-
-  /**
-   * @inheritDoc
-   * Checks if this plugin should be enabled based on the editor configuration.
-   *
-   * The editor's settings can be retrieved via $editor->getSettings().
-   */
-  public function isEnabled(Editor $editor) {
-    // Some plugins may need to be optionally enabled per CKEditor Editor
-    // A boolean setting can be used on the form to set this
-    return TRUE;
-  }
-
-  /**
-   * @inheritDoc
-   * Returns a settings form to configure this CKEditor plugin.
-   */
-  public function settingsForm(array $form, FormStateInterface $form_state, Editor $editor) {
-    $settings = $editor->getSettings();
-
-    // Add textfield to CKEditor for stat settings
-    $form['stat'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Rotation'),
-      '#description' => $this->t('Enter the options for the rotation of the stat animation, use comma to separated.'),
-      '#default_value' => !empty($settings['plugins']['stat']['animationOptions']) ? $settings['plugins']['stat']['animationOptions'] : 'Clockwise, Counter Clockwise',
-    ];
-
-    return $form;
   }
 }

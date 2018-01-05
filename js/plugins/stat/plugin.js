@@ -112,10 +112,9 @@ function registerWidget( editor ) {
         this.setData( 'statContent', statContent );
       }
 
-      // Set align, color, animation field
+      // Set align & color field
       setDataFromClass(this, 'align');
       setDataFromClass(this, 'color');
-      setDataFromClass(this, 'animation');
     },
 
     // Listen on the widget#data event which is fired every time the widget data changes
@@ -132,16 +131,15 @@ function registerWidget( editor ) {
         // this.parts.statContent.setHtml(this.data.statContent.replace( newLineRegex, '<br>'));
         this.parts.statContent.setHtml(this.data.statContent);
 
-      // Brutally remove all align, color and animation classes and set a new one if widget data is set.
+      // Brutally remove all align and color classes and set a new one if widget data is set.
       updateClass(this, 'align');
       updateClass(this, 'color');
-      updateClass(this, 'animation');
     }
   } );
 }
 
+// Match class based on start of string
 function matchClass (classList, subString) {
-  // Match class based on start of string
   classList = classList.split(" ");
 
   for (var i = 0; i < classList.length; i++) {
@@ -151,15 +149,15 @@ function matchClass (classList, subString) {
   }
 }
 
+// Set widget data from class value
 function setDataFromClass (el, selector) {
-  // Set widget data from class value
   var setClass = matchClass(el.element.$.className, selector + '-');
   if ( el.element.hasClass( selector + '-' + setClass ) )
     el.setData( selector, setClass );
 }
 
+// Remove existing class and update to new class
 function updateClass (el, selector) {
-  // Remove existing class and update to new class
   var removeClass = matchClass(el.element.$.className, selector + '-');
   el.element.removeClass( selector + '-' + removeClass );
 
