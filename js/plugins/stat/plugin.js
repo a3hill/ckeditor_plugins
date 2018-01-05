@@ -3,6 +3,7 @@
  */
 
 // @TODO Clean up Comments
+// @TODO Add CSS
 
 // Register the plugin within the editor.
 CKEDITOR.plugins.add( 'stat', {

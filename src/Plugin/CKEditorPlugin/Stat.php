@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\cke_ckeditor_plugins\Plugin\CKEditorPlugin;
+namespace Drupal\ckeditor_plugins\Plugin\CKEditorPlugin;
 
 use Drupal\ckeditor\CKEditorPluginBase;
 use Drupal\ckeditor\CKEditorPluginConfigurableInterface;
@@ -35,7 +35,7 @@ class Stat extends CKEditorPluginBase {
     return [
       'Stat' => [
         'label' => t('Stat'),
-        'image' => 'modules/custom/cke_ckeditor_plugins/js/plugins/stat/icons/stat.png',
+        'image' => 'modules/custom/ckeditor_plugins/js/plugins/stat/icons/stat.png',
       ],
     ];
   }
@@ -50,7 +50,7 @@ class Stat extends CKEditorPluginBase {
   public function getFile() {
     // Make sure that the path to the plugin.js matches the file structure of
     // the CKEditor plugin you are implementing.
-    return drupal_get_path('module', 'cke_ckeditor_plugins') . '/js/plugins/stat/plugin.js';
+    return drupal_get_path('module', 'ckeditor_plugins') . '/js/plugins/stat/plugin.js';
   }
 
   /**

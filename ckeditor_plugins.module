@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains cke_ckeditor_plugins.module.
+ * Contains ckeditor_plugins.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,10 +10,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function cke_ckeditor_plugins_help($route_name, RouteMatchInterface $route_match) {
+function ckeditor_plugins_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the cke_ckeditor_plugins module.
-    case 'help.page.cke_ckeditor_plugins':
+    // Main module help for the ckeditor_plugins module.
+    case 'help.page.ckeditor_plugins':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('Add custom plugins to CKEditor') . '</p>';

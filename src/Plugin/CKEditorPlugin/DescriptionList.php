@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\cke_ckeditor_plugins\Plugin\CKEditorPlugin;
+namespace Drupal\ckeditor_plugins\Plugin\CKEditorPlugin;
 
 use Drupal\ckeditor\CKEditorPluginBase;
 use Drupal\editor\Entity\Editor;
@@ -33,15 +33,15 @@ class DescriptionList extends CKEditorPluginBase {
     return [
       'DescriptionList' => [
         'label' => t('Description List'),
-        'image' => 'modules/custom/cke_ckeditor_plugins/js/plugins/descriptionlist/icons/descriptionlist.png',
+        'image' => 'modules/custom/ckeditor_plugins/js/plugins/descriptionlist/icons/descriptionlist.png',
       ],
       'DescriptionTerm' => [
         'label' => t('Description Term'),
-        'image' => 'modules/custom/cke_ckeditor_plugins/js/plugins/descriptionlist/icons/descriptionterm.png',
+        'image' => 'modules/custom/ckeditor_plugins/js/plugins/descriptionlist/icons/descriptionterm.png',
       ],
       'descriptionValue' => [
         'label' => t('Description Value'),
-        'image' => 'modules/custom/cke_ckeditor_plugins/js/plugins/descriptionlist/icons/descriptionvalue.png',
+        'image' => 'modules/custom/ckeditor_plugins/js/plugins/descriptionlist/icons/descriptionvalue.png',
       ],
     ];
   }
@@ -52,7 +52,7 @@ class DescriptionList extends CKEditorPluginBase {
   public function getFile() {
     // Make sure that the path to the plugin.js matches the file structure of
     // the CKEditor plugin you are implementing.
-    return drupal_get_path('module', 'cke_ckeditor_plugins') . '/js/plugins/descriptionlist/plugin.js';
+    return drupal_get_path('module', 'ckeditor_plugins') . '/js/plugins/descriptionlist/plugin.js';
   }
 
   /**
