@@ -45,9 +45,8 @@ function registerWidget( editor ) {
     // * http://docs.ckeditor.com/#!/guide/dev_advanced_content_filter
     // * http://docs.ckeditor.com/#!/guide/plugin_sdk_integration_with_acf
     allowedContent:
-    'div(!stat-wrapper,align-left,align-right,align-center);' +
-    'div(!stat-content); div(!stat)',
-
+    'div(*);',
+  
     // @TODO Editable not updating dialog
     // Define two nested editable areas.
     /*editables: {
