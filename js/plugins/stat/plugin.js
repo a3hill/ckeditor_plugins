@@ -24,13 +24,13 @@ CKEDITOR.plugins.add( 'stat', {
     // Register the editing dialog.
     CKEDITOR.dialog.add( 'stat', this.path + 'dialogs/stat.js' );
 
-    registerWidget(editor);
+    registerStatWidget(editor);
   }
 } );
 
 // Encapsulates snippet widget registration code.
 // @param {CKEDITOR.editor} editor
-function registerWidget( editor ) {
+function registerStatWidget( editor ) {
   // @TODO Change line breaks to <br>
   var newLineRegex = /\r?\n/g,
     breakRegex = /<br\s*[\/]?>/gi;

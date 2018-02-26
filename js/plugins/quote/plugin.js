@@ -1,9 +1,6 @@
 /**
- * Insert Custom Quote
- */
-
-// @TODO Clean up Comments
-// @TODO Add CSS
+* Insert Custom Quote
+*/
 
 // Register the plugin within the editor.
 CKEDITOR.plugins.add( 'quote', {
@@ -24,16 +21,13 @@ CKEDITOR.plugins.add( 'quote', {
     // Register the editing dialog.
     CKEDITOR.dialog.add( 'quote', this.path + 'dialogs/quote.js' );
 
-    registerWidget(editor);
+    registerQuoteWidget(editor);
   }
 } );
 
 // Encapsulates snippet widget registration code.
 // @param {CKEDITOR.editor} editor
-function registerWidget( editor ) {
-  // @TODO Change line breaks to <br>
-  var newLineRegex = /\r?\n/g,
-    breakRegex = /<br\s*[\/]?>/gi;
+function registerQuoteWidget( editor ) {
 
   // Register the quote widget.
   editor.widgets.add( 'quote', {
@@ -41,7 +35,6 @@ function registerWidget( editor ) {
     requiredContent: 'div(quote-wrapper)',
 
     // Allow all HTML elements, classes, and styles that this widget requires.
-    // @TODO Read more about the Advanced Content Filter here:
     // * http://docs.ckeditor.com/#!/guide/dev_advanced_content_filter
     // * http://docs.ckeditor.com/#!/guide/plugin_sdk_integration_with_acf
     allowedContent: 'div();',
@@ -60,6 +53,7 @@ function registerWidget( editor ) {
       attribution: 'div.attribution'
     },
 
+
     // Define the label for a widget toolbar button which will be automatically
     // created by the Widgets System. This button will insert a new widget instance
     // created from the template defined above, or will edit selected widget
@@ -75,7 +69,7 @@ function registerWidget( editor ) {
     // so it is not a real DOM element yet. This is caused by the fact that upcasting is performed
     // during data processing which is done on DOM represented by JavaScript objects.
     upcast: function( element ) {
-      // Return "true" (that element needs to converted to a Stat widget)
+      // Return "true" (that element needs to converted to a Quote widget)
       // for all <div> elements with a "quote" class.
       return element.name == 'div' && element.hasClass( 'quote-wrapper' );
     },
@@ -111,3 +105,4 @@ function registerWidget( editor ) {
     }
   } );
 }
+
